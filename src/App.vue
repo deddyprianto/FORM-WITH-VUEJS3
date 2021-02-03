@@ -1,35 +1,17 @@
 <template>
-  <Block :delay="delay" v-if="isPlaying" @end="ending" />
-  <button @click="start" :disabled="isPlaying">
-    Play
-  </button>
-  <p v-if="isPlaying">Your score: {{ scored }}</p>
+  <Form />
 </template>
 <script>
-import Block from "./components/Block.vue";
+import Form from "./components/Form.vue";
 export default {
   name: "App",
-  components: { Block },
-  data: function() {
-    return {
-      isPlaying: false,
-      delay: null,
-      scored: null,
-    };
-  },
-  methods: {
-    start() {
-      this.delay = 2000 + Math.random * 5000;
-      this.isPlaying = true;
-    },
-    ending(reactionTimer) {
-      this.scored = reactionTimer;
-      this.isPlaying = false;
-    },
-  },
+  components: { Form },
 };
 </script>
 <style>
+body {
+  background-color: #eee;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
